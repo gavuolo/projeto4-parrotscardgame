@@ -22,31 +22,18 @@ body{
     padding: 5%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
     position: relative;
-    
 }
+
 /*Cartas*/
-
-/*.card{
-    width: 250px;
-    height: 300px;
-    background-color: #A7E9AF;
-    border: 1px solid #99CEA8;
-    border-radius: 5px;
-    margin: 0 auto;
-    box-sizing: border-box;
-    position: relative;
-    transition: all .5s;
-    transform-style: preserve-3d;   
-}
-
-*/
 
 .card {
     width: 200px;
     height: 250px;
     position: relative;
+    margin: 1%;
   }
 
   .face {
@@ -75,7 +62,7 @@ body{
   .card:hover .front-face {
     transform: rotateY(-180deg);
   }
-  
+
 /*imagens das cartas*/
 .back-face img{
     width: 80%;

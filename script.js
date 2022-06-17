@@ -30,10 +30,19 @@ function numValido(){
 
 
 /*Começar o jogo + distribuição de cartas*/
+// fazer aleatoriedade das imagens
+// fazer com que apareçam 2 cartas iguais
+// fazer a carta ficar para cima quando acertar
 
 let divGame = document.querySelector(".game");
 divGame.innerHTML = '';
 let contador = 0;
+let gifBirds = ['bobross', 'explody', 'metal', 'fiesta', 'reviertit', 'triplets', 'unicorn']
+gifBirds.sort(comparador)
+
+function comparador() { 
+	return Math.random() - 0.5; 
+}
 
 function quantidadeCartas (){
     
@@ -51,7 +60,7 @@ function quantidadeCartas (){
         
         <div class="face back-face">
             
-            <img src="./Images/fiestaparrot.gif" alt="">
+            <img src="./Images/${gifBirds[2]}parrot.gif" alt="">
         
         </div>
         
