@@ -26,7 +26,7 @@ body{
     justify-content: space-between;
     
 }
-.cards{
+.card{
     width: 250px;
     height: 300px;
     background-color: #A7E9AF;
@@ -36,7 +36,8 @@ body{
     box-sizing: border-box;
 }
 
-.cards img{
+.card img{
     width: 100%;
     height: 100%;
 }
+
