@@ -52,9 +52,9 @@ function quantidadeCartas (){
         <div class="card">
 
 
-        <div class="face front-face ">
+        <div class="face front-face">
             
-            <img src="./images/front.png" alt="">
+            <img src="./Images/front.png" alt="">
         
         </div>
         
