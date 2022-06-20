@@ -102,9 +102,9 @@ function virarCarta(card){
     let click = card.classList.contains('virar')
 
     if (click){
-        contador++;
+        contador +=2;
     }
-
+    console.log(click, contador)
     compararCards()
 }
 
