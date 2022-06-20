@@ -80,3 +80,18 @@ body{
     width: 100%;
     height: 100%;
 }
+
+
+/*responsividade*/
+
+@media (max-width: 614px) {
+  .title{
+    text-align: center;
+  }
+
+  .game{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
