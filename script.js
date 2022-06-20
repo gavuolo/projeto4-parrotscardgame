@@ -4,7 +4,7 @@ numValido();
 //Validação de resposta pelo prompt
 function numValido(){
 
-    numCards = prompt('Com quantas cartas você deseja jogar? (somente de 4 a 14 cartas)');
+    numCards = prompt('Com quantas cartas você deseja jogar? (somente pares de 4 a 14 cartas)');
 
     if ( numCards % 2 !== 0){
         alert("Digite um número par");
@@ -34,16 +34,19 @@ divGame.innerHTML = '';
 let gifBirds = ['bobross', 'explody', 'metal', 'fiesta', 'revertit', 'triplets', 'unicorn'];
 
 //embaralhar a array
-gifBirds.sort(comparador);
+;
 
 function comparador() { 
 	return Math.random() - 0.5; 
 }
+let gifPares = [];
 
+//-------------------------------------------------------------------------------------------
+// Adcionar cartas
 function distribuiCards (){
 
-    let gifPares = [];
-
+    gifBirds.sort(comparador)
+    
     for(let p = 0; p < numCards/2; p ++){
         gifPares.push(gifBirds[p]);
         gifPares.push(gifBirds[p]);
@@ -70,8 +73,8 @@ function distribuiCards (){
 }
 distribuiCards()
 
-//-----------------------------------------------------
-//Cartas viradas
+//-------------------------------------------------------------------------------------------
+// Virar cartas e comparar
 
 let contador = 0;
 
@@ -101,6 +104,7 @@ function virarCarta(card){
     if (click){
         contador++;
     }
+
     compararCards()
 }
 
@@ -129,22 +133,37 @@ function compararCards() {
             card2= null
         }
 
+        setTimeout(fimJogo, 500)
+    }
+ 
+//-------------------------------------------------------------------------------------------
+// Resetar o jogo
+
+    function fimJogo(){
+
         let fimGame = document.querySelectorAll(".acertou");
         console.log(fimGame)
 
-        if(fimGame.length === numCards){
-            alert(`Você ganhou o jogo, usando ${contador} jogadas`)
+        if (fimGame.length === numCards){
+            
+            alert(`Parabéns! você ganhou usando ${contador} jogadas`)
             restart()
         }
 
-        
     }
     
     function restart(){
-        let restart = prompt(`Quer jogar novamente? responda "sim" ou "não"`)
+        let reset = prompt(`Quer jogar novamente? responda "sim" ou "não"`)
 
-        if (restart == "sim"){
-            location.reload()
+        if (reset == "sim"){
+            location.reload(true)
+
+        } else if (reset == "não") {
+            alert(`Beleza, valeu por jogar!`)
         }
-        alert(`Valeu por jogar!`)
+        else {
+            alert(`Respostas válidas, somente: "sim" ou "não"`)
+            restart()
+        }
+        
     }
