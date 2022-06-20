@@ -1,7 +1,7 @@
 let numCards;
 numValido();
 
-/*Validação de resposta pelo prompt*/ 
+//Validação de resposta pelo prompt
 function numValido(){
 
     numCards = prompt('Com quantas cartas você deseja jogar? (somente de 4 a 14 cartas)');
@@ -27,49 +27,87 @@ function numValido(){
     }  
     numCards = Number(numCards);
 }
-
-
-/*Começar o jogo + distribuição de cartas*/
-// fazer aleatoriedade das imagens
-// fazer com que apareçam 2 cartas iguais
-// fazer a carta ficar para cima quando acertar
+//-------------------------------------------------------------------------------------------
 
 let divGame = document.querySelector(".game");
 divGame.innerHTML = '';
-let contador = 0;
-let gifBirds = ['bobross', 'explody', 'metal', 'fiesta', 'reviertit', 'triplets', 'unicorn']
-gifBirds.sort(comparador)
+let gifBirds = ['bobross', 'explody', 'metal', 'fiesta', 'revertit', 'triplets', 'unicorn'];
+
+//embaralhar a array
+gifBirds.sort(comparador);
 
 function comparador() { 
 	return Math.random() - 0.5; 
 }
 
-function quantidadeCartas (){
-    
-    while (numCards != contador){
+function distribuiCards (){
 
+    let gifPares = [];
+
+    for(let p = 0; p < numCards/2; p ++){
+        gifPares.push(gifBirds[p]);
+        gifPares.push(gifBirds[p]);
+        gifPares.sort(comparador);
+    }
+
+    for (let i = 0; i < numCards; i ++){
+       
         divGame.innerHTML += `
-        <div class="card">
-
-
+        <div class="card" onclick="virarCarta(this)">
         <div class="face front-face">
-            
             <img src="./Images/front.png" alt="">
-        
         </div>
         
         <div class="face back-face">
             
-            <img src="./Images/${gifBirds[2]}parrot.gif" alt="">
+            <img src="./Images/${gifPares[i]}parrot.gif" class="img">
         
         </div>
         
         </div>
         `;
+    }    
+}
+distribuiCards()
 
-        contador ++;
-    }
+//-----------------------------------------------------
+//Cartas viradas
+
+let contador = 0;
+
+let card1
+let card2 
+
+function virarCarta(card){
+
+    card.classList.add('virar');
 
     
+
+
+    //saber quantas vezes clicou
+    let click = card.classList.contains('virar')
+
+    if (click){
+        contador++;
+    }
+    compararCards()
 }
-quantidadeCartas ()
+
+
+
+
+function compararCards() {
+    card1 = document.querySelector(".img")
+
+    card2 = classList.contains(".img")
+
+    console.log(card1, card2)
+   /* if (card1 !== ){
+      
+    } else {
+
+    }*/
+
+
+}

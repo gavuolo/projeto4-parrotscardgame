@@ -49,19 +49,30 @@ body{
     backface-visibility: hidden;
     transition: all .5s;
     transform-style: preserve-3d;
+    cursor: pointer;
   }
 
-  .back-face {
+  .front-face {
+  }
+
+  .back-face{
     transform: rotateY(180deg);
   }
+  
 
-  .card:hover .back-face {
+  .virar{
+    transform: rotateY(180deg);
+    transition: all 1s;
+    transform-style: preserve-3d;
+  }
+
+  /*.card:active .back-face {
     transform: rotateY(0deg);
   }
 
   .card:hover .front-face {
     transform: rotateY(-180deg);
-  }
+  }*/
 
 /*imagens das cartas*/
 .back-face img{
