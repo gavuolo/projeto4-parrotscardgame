@@ -47,7 +47,7 @@ body{
     justify-content: center;
     position: absolute;
     backface-visibility: hidden;
-    transition: all .5s;
+    
     transform-style: preserve-3d;
     cursor: pointer;
   }
@@ -66,13 +66,9 @@ body{
     transform-style: preserve-3d;
   }
 
-  /*.card:active .back-face {
-    transform: rotateY(0deg);
+  .acertou{
+    transform: rotateY(180deg);
   }
-
-  .card:hover .front-face {
-    transform: rotateY(-180deg);
-  }*/
 
 /*imagens das cartas*/
 .back-face img{

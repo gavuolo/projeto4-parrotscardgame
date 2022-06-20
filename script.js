@@ -53,12 +53,12 @@ function distribuiCards (){
     for (let i = 0; i < numCards; i ++){
        
         divGame.innerHTML += `
-        <div class="card" onclick="virarCarta(this)">
+        <div class="card" onclick="virarCarta(this)" data-card="${gifPares[i]}">
         <div class="face front-face">
             <img src="./Images/front.png" alt="">
         </div>
         
-        <div class="face back-face">
+        <div class="face back-face" >
             
             <img src="./Images/${gifPares[i]}parrot.gif" class="img">
         
@@ -78,13 +78,23 @@ let contador = 0;
 let card1
 let card2 
 
+let trancar = false;
+
 function virarCarta(card){
+    if(trancar){
+        return false;
+    }
 
     card.classList.add('virar');
 
+    if(!card1){
+        card1 = card
+
+        return false;
+    }
+
+    card2 = card;
     
-
-
     //saber quantas vezes clicou
     let click = card.classList.contains('virar')
 
@@ -95,19 +105,46 @@ function virarCarta(card){
 }
 
 
-
-
 function compararCards() {
-    card1 = document.querySelector(".img")
+    let verificar = card1.dataset.card === card2.dataset.card
+    console.log(verificar)
+    
 
-    card2 = classList.contains(".img")
+    if (!verificar){
+        trancar = true
+        setTimeout(resetCards =>{
+        card1.classList.remove('virar');
+        card2.classList.remove('virar');
 
-    console.log(card1, card2)
-   /* if (card1 !== ){
-      
-    } else {
+        card1 = null
+        card2= null
 
-    }*/
+        trancar = false  
+               
+        }, 1000);} else if (verificar){
+            card1.classList.add('acertou');
+            card2.classList.add('acertou');
 
+            card1 = null
+            card2= null
+        }
 
-}
+        let fimGame = document.querySelectorAll(".acertou");
+        console.log(fimGame)
+
+        if(fimGame.length === numCards){
+            alert(`Você ganhou o jogo, usando ${contador} jogadas`)
+            restart()
+        }
+
+        
+    }
+    
+    function restart(){
+        let restart = prompt(`Quer jogar novamente? responda "sim" ou "não"`)
+
+        if (restart == "sim"){
+            location.reload()
+        }
+        alert(`Valeu por jogar!`)
+    }
