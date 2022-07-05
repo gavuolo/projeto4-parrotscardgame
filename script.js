@@ -4,7 +4,7 @@ numValido();
 //Validação de resposta pelo prompt
 function numValido(){
 
-    numCards = prompt('Com quantas cartas você deseja jogar? (somente pares de 4 a 14 cartas)');
+    numCards = Number(prompt('Com quantas cartas você deseja jogar? (somente pares de 4 a 14 cartas)'));
 
     if ( numCards % 2 !== 0){
         alert("Digite um número par");
@@ -21,11 +21,10 @@ function numValido(){
         numValido();
     }
 
-    else if ( numCards == null ){
+    else if ( isNaN(numCards) ){
         alert("Digite um número válido");
         numValido();
     }  
-    numCards = Number(numCards);
 }
 //-------------------------------------------------------------------------------------------
 
